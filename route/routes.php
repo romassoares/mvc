@@ -39,7 +39,6 @@ if ($method === 'GET') {
                 $user = new Home();
                 $user->edit($userId);
             }
-
             break;
 
         case strpos($uri, '/user/remove/') !== false:

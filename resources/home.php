@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,13 +18,13 @@ session_start();
             <input type="text" name="name" id="name">
             <button type="submit">Search</button>
         </form>
-        <?php var_dump(App\Auth::isAuthenticated()) ?>
-        <!-- <?php if (App\Auth::isAuthenticated() === true) { ?>
+
+        <?php if (isset($_SESSION['logged'])) { ?>
             <a href="/dashboard">Dashboard</a>
             <a href="/logout">Logout</a>
         <?php } else { ?>
             <a href="/login">login</a>
-        <?php } ?> -->
+        <?php } ?>
     </div>
     <div>
 

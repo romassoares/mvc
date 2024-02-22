@@ -2,6 +2,8 @@
 
 namespace App;
 
+session_start();
+
 class Auth
 {
     private $db;
@@ -10,8 +12,13 @@ class Auth
         $this->db = new DB();
     }
 
-    public static function isAuthenticated()
+    public static function isAuthenticated($user)
     {
+
+        $_SESSION['user'] = $user;
+
+        $_SESSION['logged'] = true;
+
         return $_SESSION['logged'];
     }
 
@@ -33,11 +40,8 @@ class Auth
 
                 $user = $response->fetchObject();
                 if ($user) {
-                    session_start();
 
-                    $_SESSION['user'] = $user;
-
-                    $_SESSION['logged'] = true;
+                    $this->isAuthenticated($user);
 
                     header('location: /dashboard');
                 } else {
@@ -53,15 +57,15 @@ class Auth
 
     public function logout()
     {
-        // conferir porque não está removendo o usuário
-        unset($_SESSION['user']);
+        if (isset($_SESSION['logged'])) {
+            unset($_SESSION['logged']);
+            session_destroy();
+            // var_dump($_SESSION['logged']);
+            // die();
 
-        $_SESSION['logged'] = false;
-
-        session_destroy();
-        session_reset();
-
-
-        header("location: /login");
+            header("location: /login");
+        } else {
+            echo "error ao fazer o logout";
+        }
     }
 }

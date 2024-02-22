@@ -9,7 +9,7 @@
 
 <body>
     <div>
-        <h1>Login</h1>
+        <h1>Login</h1><a href="/dashboard">Dashboard</a>
         <div>
             <form action="/authenticate" method="post">
                 <input type="email" name="email" id="email" value="romas@email.com" />
