@@ -2,6 +2,7 @@
 
 use App\Home;
 use App\Auth;
+use App\Dashboard;
 
 $method = $_SERVER['REQUEST_METHOD'];
 $uri = $_SERVER['REQUEST_URI'];
@@ -26,7 +27,8 @@ if ($method === 'GET') {
             break;
 
         case '/dashboard':
-            require 'resources/dashboard.php';
+            $dashboard = new Dashboard();
+            $dashboard->index();
             break;
 
         case '/user/create':
