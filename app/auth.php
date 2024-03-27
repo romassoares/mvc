@@ -45,13 +45,16 @@ class Auth
 
                     header('location: /dashboard');
                 } else {
-                    echo 'Nenhum usuário encontrado';
+                    $msg = msg("error ao efetuar login", "error");
+                    require 'resources/auth/login.php';
                 }
             } else {
-                echo 'Erro ao buscar usuário';
+                $msg = msg("Erro ao buscar usuário", "error");
+                require 'resources/auth/login.php';
             }
         } else {
-            echo "Endereço de e-mail inválido";
+            $msg = msg("Endereço de e-mail inválido", "error");
+            require 'resources/auth/login.php';
         }
     }
 

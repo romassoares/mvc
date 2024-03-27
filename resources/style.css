@@ -1,0 +1,27 @@
+body {
+    background-color: yellow;
+}
+
+.msgWaring {
+    color: black;
+    background-color: rgb(255, 175, 2)
+}
+
+.msgErro {
+    color: black;
+    background-color: rgb(253, 39, 1)
+}
+
+.msgSuccess {
+    color: black;
+    background-color: rgb(1, 247, 1)
+}
+
+.msgInformation {
+    color: black;
+    background-color: rgb(133, 133, 133)
+}
+
+/* .msgWaring{
+    
+} */
